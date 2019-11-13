@@ -249,12 +249,9 @@ function getRunnersByTShirtSize(runners, tShirtSize) {
 */
 function tallyUpDonations(runners) {
   const dons = runners.reduce(function(accumulator, currentValue){
-    return accumulator + currentValue;}, 0); 
-  }
-console.log(dons); 
-
-
-
+  accumulator + currentValue.donation}, 0);
+  return dons;
+  } 
 
 /////////////// CLOSURES ///////////////
 /////////////// CLOSURES ///////////////
@@ -275,8 +272,8 @@ console.log(dons);
 function counterMaker() {
   // BROKEN CODE STARTS
   const count = 0;
-  function counter() {
-    ++count
+  return function counter() { 
+ count++
   }
   // BROKEN CODE ENDS
 }
@@ -301,9 +298,13 @@ function counterMaker() {
  * counter() // should return 0
  * etc
 */
-function counterMakerWithLimit(/* CODE HERE */) {
-  /* CODE HERE */
+function counterMakerWithLimit(max) {
+  const count = 0;
+  return function (){if (count > max){
+  return count;}
+  return count++;}
 }
+
 
 /////////////// END OF CHALLENGE ///////////////
 /////////////// END OF CHALLENGE ///////////////
